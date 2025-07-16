@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            padding-top: 80px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Panel superior fijo */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            z-index: 1000;
+        }
+        
+        .logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+        
+        /* Sección principal con GIF y texto */
+        .main-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .main-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        
+        .main-content p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .gif-container {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .gif-container img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tres secciones inferiores */
+        .sections-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 50px;
+            background-color: #f9f9f9;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            flex: 0 0 32%;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-gif {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .section h2 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.3rem;
+        }
+        
+        .section p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Panel inferior */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-section {
+                flex-direction: column;
+                padding: 40px 30px;
+            }
+            
+            .main-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .sections-container {
+                flex-wrap: wrap;
+                padding: 30px;
+            }
+            
+            .section {
+                flex: 0 0 100%;
+                margin-bottom: 20px;
+            }
+            
+            header {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (min-width: 901px) and (max-width: 1100px) {
+            .section {
+                flex: 0 0 31%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Panel superior fijo -->
+    <header>
+        <div class="logo">
+            <img src="img/uey.png" alt="Logo" class="logo">
+        </div>
+        <h1 style="text-align: center;"> Unidad Educativa "Yahuarcocha" </h1>
+        <nav>
+            <ul>
+                <li><a href="circulo.html"> Portada </a></li>
+                <li><a href="#servicios"> 1INF </a></li>
+                <li><a href="#contacto"> 2INF </a></li>
+                <li><a href="#3inf"> 3INF </a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Sección principal con GIF y texto -->
+    <section class="main-section" id="inicio">
+        <div class="main-content">
+            <h1> Trabajos Escolares </h1>
+            <p> Los estudiantes del área de informática suelen realizar trabajos enfocados en distintas áreas como la programación.</p>
+            <p> En está página estaran expuestos todos los trabajos de los estudiantes de primero y segundo informática</p>
+        </div>
+        <div class="gif-container">
+            <img src="gifs/matrix.gif" alt="GIF animado">
+        </div>
+    </section>
+    
+    <!-- Tres secciones inferiores -->
+    <div class="sections-container" id="servicios">
+        <div class="section">
+            <img src="gifs/gif.gif" alt="GIF 1" class="section-gif">
+            <h2> Primero Informática </h2>
+            <p style="text-align: justify;">En el primer año de informática los estudiantes realizan trabajos en power point como:</p>
+            <p> <b> 1. Ruletas </b></p>
+            <p> <b> 2. Memoramas </b></p>
+            <p> <b> 3. Sopa de letras </b></p>
+            <p> <b> 4. karaokes </b></p>
+        </div>
+        
+        <div class="section">
+            <img src="gifs/gif-2.gif" alt="GIF 2" class="section-gif">
+            <h2> Segundo Informática </h2>
+            <p style="text-align: justify;"> En el segundo año de informática se realizan trabajos relacionados con la programación como
+            diseñar paginas web usando las siguientes herramientas: </p>
+            <p> <b> Lenguaje HTML </b></p>
+            <p> <b> Css </b></p>
+            <p> <b> JavaScript </b></p>
+        </div>
+        
+        <div class="section">
+            <img src="gifs/gif-3.gif" alt="GIF 3" class="section-gif">
+            <h2> Tercero Informática </h2>
+            <p> En el último año se llevan a cabo las pasantias en distintas empresas y cooperativas que se realizan por los estudiantes.</p>
+        </div>
+    </div>
+    
+    <!-- Panel inferior -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <h3>Información adicional</h3>
+            <p> Página creada en 7 de abril del año 2025</p>
+            <p> Diseñada por Cristopher Erazo </p>
+            <p> Estudiante dela Unidad Educativa "Yahuarcocha </p>
+        </div>
+    </footer>
+</body>
+</html>

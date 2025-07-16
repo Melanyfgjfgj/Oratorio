@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Círculo con GIF y Títulos</title>
+  <style>
+    :root {
+      --circle-size: 200px;
+      --circle-border: 3px solid white;
+
+      /* Colores del fondo animado */
+      --color1: #8e44ad;
+      --color2: #a569bd;
+      --color3: #bb8fce;
+      --color4: #d2b4de;
+      --color5: #e8daef;
+      --color6: #f4ecf7;
+
+      --text-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       animation: backgroundCycle 30s infinite;
+       background-color: #000000; /* Fondo rojo */
+ 
+      font-family: Arial, sans-serif;
+    }
+
+    @keyframes backgroundCycle {
+      10%   { background-color: #000000;}
+      20%   { background-color: #000033;}
+      30%   { background-color: #000066;}
+      40%   { background-color: #000099;}
+      50%   { background-color: #0000CC;}
+      60%   { background-color: #0000FF;}
+      70%   { background-color: #3300FF;}
+      80%   { background-color: #3300CC;}
+      80%   { background-color: #330099;}
+      100%  { background-color: #330066;}
+      110%  { background-color: #330033}
+      120%  { background-color: #330000}
+    }
+  
+
+    .contenedor {
+      text-align: center;
+    }
+
+    .titulo-superior {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--text-color);
+      margin-bottom: 20px;
+    }
+
+    .titulo-inferior {
+      font-size: 18px;
+      color: var(--text-color);
+      margin-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .circulo {
+      width: var(--circle-size);
+      height: var(--circle-size);
+      border-radius: 50%;
+      border: var(--circle-border);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      background-color: white;
+      transition: transform 0.3s ease;
+      margin: 0 auto;
+    }
+
+    .circulo:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .circulo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="titulo-superior"> ORATORIO </div>
+
+    <a href="ora.html">
+      <div class="circulo">
+        <img src="arbol.png" alt="GIF en círculo">
+      </div>
+    </a>
+
+    <div class="titulo-inferior"> 2025-2026 </div>
+  </div>
+</body>
+</html>

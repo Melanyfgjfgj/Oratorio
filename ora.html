@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Oratorio </title>
+  <style>
+    :root {
+      --panel-width: 175px;
+      --panel-height: 275px;
+      --font-size: 20px;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      font-size: var(--font-size);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: #000000; /* Fondo rojo */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: backgroundCycle 25s infinite;
+    }
+
+    header {
+      background-color: rgb(255, 255, 255);
+      color: #000000;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(85, 83, 83, 0.4);
+      box-sizing: border-box;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 50px;
+      border-radius: 100%;
+      object-fit: u;
+      background-color: #ffffff; 
+      border: 1px solid #a3a3a3; 
+      padding: 5px 10px; 
+      border-radius: 10px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main-content {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 40px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .panel {
+      width: var(--panel-width);
+      height: var(--panel-height);
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      border: 3px solid;
+      animation: borderColorChange 4s infinite linear;
+      transition: transform 10s, background-color 10s;
+      font-weight: bold;
+    }
+
+    .panel:hover {
+      transform: scale(1.05);
+    }
+
+    .panel:nth-child(1) {
+      background-color: #0026ff;
+      color: #ecf0f1;
+    }
+
+    .panel:nth-child(2) {
+      background-color: #e41111;
+      color: #ffffff;
+    }
+
+    .panel:nth-child(3) {
+      background-color: #099409;
+      color: #ffffff;
+    }
+
+    .panel:nth-child(4) {
+      background-color: #ffee00;
+      color: #000000;
+    }
+
+    .panel-label {
+      margin-bottom: 10px;
+    }
+
+    .panel-score {
+      font-size: 26px;
+    }
+
+    .descripcion {
+      margin-top: 30px;
+      padding: 0 20px;
+      max-width: 800px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .panel img{
+      width: 100px;
+      height: 125px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    @keyframes borderColorChange {
+      0%   { border-color: #f5a2a2; }
+      25%  { border-color: #786ff7; }
+      50%  { border-color: #74ff74; }
+      75%  { border-color: #f5ed7c; }
+      100% { border-color: #ffffff; }
+    }
+
+    @keyframes backgroundCycle {
+      10%   { background-color: #17202a;}
+      20%   { background-color: #1c2833;}
+      30%   { background-color: #212f3d;}
+      40%   { background-color: #273746;}
+      50%   { background-color: #2c3e50;}
+      60%   { background-color: #566573;}
+      70%   { background-color: #808b96;}
+      80%   { background-color: #abb2b9;}
+      80%   { background-color: #d5d8dc;}
+      100%  { background-color: #eaecee;}
+      
+    }
+ 
+ .volver-btn {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden; /* <- clave para recortar la imagen dentro del círculo */
+}
+
+.volver-btn:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.volver-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.telon {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: telonBackgroundCycle 20s infinite;
+    transition: opacity 1s ease, visibility 1s ease;
+  }
+
+  .telon.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .circle-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 0 20px white;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+  }
+
+  .circle-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes telonBackgroundCycle {
+    0% { background-color: #2c3e50; }
+    25% { background-color: #1c2833; }
+    50% { background-color: #273746; }
+    75% { background-color: #212f3d; }
+    100% { background-color: #2c3e50; }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px white;
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px white;
+    }
+  }
+
+  </style>
+</head>
+<body>
+
+<div id="telon" class="telon">
+  <div class="circle-container" onclick="cerrarTelon()">
+    <img src="alan.jpg" alt="Entrar">
+  </div>
+</div>
+
+  <header>
+    <div class="logo">
+      <!-- Cambia aquí el logo -->
+      <img src="oratorio.jpg" alt="Logo">
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div class="panel" onclick="incrementScore(0)">
+      <div class="panel-label"> Peregrinos </div>
+      <img src="peregrinos-removebg-preview.png">
+      <div class="panel-score" id="score0">0</div>
+    </div>
+
+    <div class="panel" onclick="incrementScore(1)">
+      <div class="panel-label"> Crucenos </div>
+      <img src="crusenos-removebg-preview.png">
+      <div class="panel-score" id="score1">0</div>
+    </div>
+
+    <div class="panel" onclick="incrementScore(2)">
+      <div class="panel-label"> Palmeros </div>
+      <img src="palmeros-removebg-preview.png">
+      <div class="panel-score" id="score2">0</div>
+    </div>
+
+    <div class="panel" onclick="incrementScore(3)">
+      <div class="panel-label"> Romeros </div>
+      <img src="romeros-removebg-preview.png">
+      <div class="panel-score" id="score3">0</div>
+    </div>
+  </div>
+
+  <script>
+    let scores = [0, 0, 0, 0];
+
+    function incrementScore(panelIndex) {
+      scores[panelIndex]++;
+      document.getElementById(`score${panelIndex}`).textContent = scores[panelIndex];
+    }
+
+function resetScores() {
+  for (let i = 0; i < scores.length; i++) {
+    scores[i] = 0;
+    document.getElementById(`score${i}`).textContent = 0;
+  }
+}
+
+function cerrarTelon() {
+    const telon = document.getElementById("telon");
+    telon.classList.add("oculto");
+  }
+  </script>
+
+<div style="margin-top: 40px;">
+  <button class="volver-btn" onclick="resetScores()">
+    <img src="Mash-.jpg" alt="volver" />
+  </button>
+</div>
+
+</body>
+</html>
